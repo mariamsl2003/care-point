@@ -1,34 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Home from './pages/home'
+import Doctor from './pages/doctor'
+import Contact from './pages/contact'
+import Appointments from './pages/appointments'
+import About from './pages/about'
+import Login from './pages/login'
+import MyAppointments from './pages/my_appintments'
+import MyProfile from './pages/my_profile'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Routes>
+        <Route path='/' element={<Home />}>home</Route>
+        <Route path='/all-doctors' element={<Doctor />}>all doctors</Route>
+        <Route path='/all-doctors/:speciality' element={<Doctor />}>all doctors</Route>
+        <Route path='/contact' element={<Contact />}>contact</Route>
+        <Route path='/appointments/:docid' element={<Appointments />}>appointments</Route>
+        <Route path='/about' element={<About />}>about</Route>
+        <Route path='/login' element={<Login />}>login</Route>
+        <Route path='/myappointments' element={<MyAppointments />}>my appointments</Route>
+        <Route path='/myprofile' element={<MyProfile />}>my profile</Route>
+      </Routes>
+    </div>
   )
 }
 
